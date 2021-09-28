@@ -4,6 +4,7 @@ import InputText from "../components/InputText";
 import Card from "../components/Card";
 import Cards from "../components/Cards";
 import Question from "../components/Question";
+import LoginButton from "../components/LoginButton";
 
 export default function Home() {
   return (
@@ -26,7 +27,7 @@ export default function Home() {
         <Card />
         <Card />
       </Cards>
-
+      <LoginButton />
     </>
   )
 }
