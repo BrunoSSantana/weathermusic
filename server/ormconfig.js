@@ -10,7 +10,7 @@ module.exports = {
   password: `${process.env.PASSWORD_DATABASE}`,
   database: 'weathermusic',
   migrations: ['./src/database/migrations/*.ts'],
-  entities: ['./src/modules/**/entities/*.ts'],
+  entities: ['./src/entities/*.ts'],
   cli: {
     migrationsDir: './src/database/migrations',
     entitiesDir: './src/entities'
