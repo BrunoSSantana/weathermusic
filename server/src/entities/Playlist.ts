@@ -7,16 +7,13 @@ import {
 } from 'typeorm'
 import { v4 as uuid } from 'uuid'
 
-@Entity()
+@Entity('playlists')
 export class Playlist {
   @PrimaryColumn()
   id: string
 
   @Column()
   user_id: string
-
-  @Column()
-  music_id: string
 
   @CreateDateColumn()
   created_at: Date

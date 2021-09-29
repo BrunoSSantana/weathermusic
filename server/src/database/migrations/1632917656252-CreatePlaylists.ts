@@ -16,10 +16,6 @@ export class CreatePlaylists1632917656252 implements MigrationInterface {
             type: 'uuid'
           },
           {
-            name: 'music_id',
-            type: 'uuid'
-          },
-          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()'
