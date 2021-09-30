@@ -21,6 +21,7 @@ class CreatePlaylistController {
 
       const data = request.body
       const musics: ICreatePLaylistRequest[] = data.musics
+      const { ritmo, temp } = data.reference
       const { user_id } = request
 
       const user = await usersrepository.findOne({ id: user_id })
@@ -30,7 +31,8 @@ class CreatePlaylistController {
       }
 
       const playlist = playlistrepository.create({
-        user_id
+        user_id,
+        reference: `${ritmo}-${temp}-${new Date()}`
       })
       const { id: playlist_id } = await playlistrepository.save(playlist)
 

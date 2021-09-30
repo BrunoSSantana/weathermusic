@@ -15,6 +15,9 @@ export class Playlist {
   @Column()
   user_id: string
 
+  @Column()
+  reference: string
+
   @CreateDateColumn()
   created_at: Date
 

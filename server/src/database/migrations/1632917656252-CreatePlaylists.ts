@@ -16,6 +16,10 @@ export class CreatePlaylists1632917656252 implements MigrationInterface {
             type: 'uuid'
           },
           {
+            name: 'reference',
+            type: 'varchar'
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()'

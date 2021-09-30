@@ -2,10 +2,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryColumn,
   UpdateDateColumn
 } from 'typeorm'
 import { v4 as uuid } from 'uuid'
+
+import { Playlist } from './Playlist'
 
 @Entity('musics')
 export class Music {
@@ -14,6 +18,10 @@ export class Music {
 
   @Column()
   playlist_id: string
+
+  @JoinColumn({ name: 'playlist_id' })
+  @ManyToOne(() => Playlist)
+  playlist: Playlist
 
   @Column()
   artist: string
