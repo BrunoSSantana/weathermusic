@@ -2,7 +2,7 @@ import { hash } from 'bcryptjs'
 import { Request, Response } from 'express'
 import { getCustomRepository } from 'typeorm'
 
-import { UsersRepositories } from '../repositories/UsersRepositories'
+import { UsersRepositories } from '../../repositories/UsersRepositories'
 
 class UpdateUserController {
   async handle(request: Request, response: Response): Promise<Response> {
@@ -28,8 +28,9 @@ class UpdateUserController {
       }
 
       await query.execute()
+      const user = await usersRepository.findOne({ id: user_id })
 
-      return response.json({ message: 'Updated!' })
+      return response.json({ message: ` Your name updated for ${user.name}!` })
     } catch (error) {
       return response.json(error)
     }

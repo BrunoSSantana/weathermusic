@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { getCustomRepository } from 'typeorm'
 
-import { PlaylistsRepositories } from '../repositories/PlaylistsRepositories'
+import { PlaylistsRepositories } from '../../repositories/PlaylistsRepositories'
 
 class DeletePlaylistController {
   async handle(request: Request, response: Response): Promise<Response> {

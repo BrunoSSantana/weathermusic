@@ -4,7 +4,7 @@ import { Request, Response } from 'express'
 import { sign } from 'jsonwebtoken'
 import { getCustomRepository } from 'typeorm'
 
-import { UsersRepositories } from '../repositories/UsersRepositories'
+import { UsersRepositories } from '../../repositories/UsersRepositories'
 
 dotenv.config()
 

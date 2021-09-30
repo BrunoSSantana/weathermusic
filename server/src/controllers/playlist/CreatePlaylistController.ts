@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
 import { getCustomRepository } from 'typeorm'
 
-import { MusicsRepositories } from '../repositories/MusicsRepositories'
-import { PlaylistsRepositories } from '../repositories/PlaylistsRepositories'
-import { UsersRepositories } from '../repositories/UsersRepositories'
+import { MusicsRepositories } from '../../repositories/MusicsRepositories'
+import { PlaylistsRepositories } from '../../repositories/PlaylistsRepositories'
+import { UsersRepositories } from '../../repositories/UsersRepositories'
 
 interface ICreatePLaylistRequest {
   artist: string
@@ -21,7 +21,7 @@ class CreatePlaylistController {
 
       const data = request.body
       const musics: ICreatePLaylistRequest[] = data.musics
-      const { ritmo, temp } = data.reference
+      const { ritmo } = data.reference
       const { user_id } = request
 
       const user = await usersrepository.findOne({ id: user_id })
@@ -30,13 +30,16 @@ class CreatePlaylistController {
         return response.json({ message: 'User does not exists' })
       }
 
+      const date = new Date(Date.now())
+
+      const dateFormat = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
+
       const playlist = playlistrepository.create({
         user_id,
-        reference: `${ritmo}-${temp}-${new Date()}`
+        reference: `${ritmo}-${dateFormat}-${Date.now()}`
       })
       const { id: playlist_id } = await playlistrepository.save(playlist)
 
-      console.log('musics', musics)
       for (const music of musics) {
         const sound = musicsrepository.create({
           artist: music.artist,

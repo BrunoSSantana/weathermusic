@@ -2,7 +2,7 @@ import { hash } from 'bcryptjs'
 import { Request, Response } from 'express'
 import { getCustomRepository } from 'typeorm'
 
-import { UsersRepositories } from '../repositories/UsersRepositories'
+import { UsersRepositories } from '../../repositories/UsersRepositories'
 
 class CreateUserController {
   async handle(request: Request, response: Response): Promise<Response> {
