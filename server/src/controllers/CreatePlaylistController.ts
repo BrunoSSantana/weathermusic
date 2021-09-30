@@ -1,4 +1,9 @@
 import { Request, Response } from 'express'
+import { getCustomRepository } from 'typeorm'
+
+import { MusicsRepositories } from '../repositories/MusicsRepositories'
+import { PlaylistsRepositories } from '../repositories/PlaylistsRepositories'
+import { UsersRepositories } from '../repositories/UsersRepositories'
 
 interface ICreatePLaylistRequest {
   artist: string
@@ -9,17 +14,43 @@ interface ICreatePLaylistRequest {
 
 class CreatePlaylistController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const musics: ICreatePLaylistRequest[] = request.body
-    const { user_id } = request
+    try {
+      const usersrepository = getCustomRepository(UsersRepositories)
+      const playlistrepository = getCustomRepository(PlaylistsRepositories)
+      const musicsrepository = getCustomRepository(MusicsRepositories)
 
-    // validar se usuário existe
+      const data = request.body
+      const musics: ICreatePLaylistRequest[] = data.musics
+      const { user_id } = request
 
-    // criar playlist
+      const user = await usersrepository.findOne({ id: user_id })
 
-    // criar músicas com o playlist_id com o id da playlist criada um
-    // for each dentro do array de musics
+      if (!user) {
+        return response.json({ message: 'User does not exists' })
+      }
 
-    return response.json()
+      const playlist = playlistrepository.create({
+        user_id
+      })
+      const { id: playlist_id } = await playlistrepository.save(playlist)
+
+      console.log('musics', musics)
+      for (const music of musics) {
+        const sound = musicsrepository.create({
+          artist: music.artist,
+          music_name: music.music_name,
+          playlist_id,
+          url_image: music.url_image,
+          url_sound: music.url_sound
+        })
+
+        await musicsrepository.save(sound)
+      }
+
+      return response.json()
+    } catch (error) {
+      return response.json(error)
+    }
   }
 }
 
