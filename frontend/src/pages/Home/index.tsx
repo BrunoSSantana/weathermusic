@@ -25,6 +25,12 @@ export default function Home() {
           music_name='Num é só ver'
           subtible='Emicida'
         />
+        <Card
+          url_image='https://i.scdn.co/image/ab67616d0000b27319f2f5dfee3023fb8630c08e'
+          url_sound=''
+          music_name='Num é só ver'
+          subtible='Emicida'
+        />
       </Cards>
     </Container>
   )
