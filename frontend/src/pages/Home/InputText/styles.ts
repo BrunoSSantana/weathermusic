@@ -10,6 +10,7 @@ export const Input = styled.input`
   width: 500px;
   background: #FFF;
   border: none;
+  border-radius: 8px 0 0 8px;
 
   caret-color: #04D361;
 
@@ -23,6 +24,7 @@ export const Button = styled.button`
   color: #FFF;
   border: none;
   padding: 24px 64px;
+  border-radius: 0 8px 8px 0;
 
   font-weight: bold;
 
