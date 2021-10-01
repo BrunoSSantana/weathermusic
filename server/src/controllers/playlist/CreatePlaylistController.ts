@@ -5,13 +5,6 @@ import { MusicsRepositories } from '../../repositories/MusicsRepositories'
 import { PlaylistsRepositories } from '../../repositories/PlaylistsRepositories'
 import { UsersRepositories } from '../../repositories/UsersRepositories'
 
-interface ICreatePLaylistRequest {
-  artist: string
-  music_name: string
-  url_sound: string
-  url_image: string
-}
-
 class CreatePlaylistController {
   async handle(request: Request, response: Response): Promise<Response> {
     try {
@@ -19,9 +12,7 @@ class CreatePlaylistController {
       const playlistrepository = getCustomRepository(PlaylistsRepositories)
       const musicsrepository = getCustomRepository(MusicsRepositories)
 
-      const data = request.body
-      const musics: ICreatePLaylistRequest[] = data.musics
-      const { ritmo } = data.reference
+      const { ritmo, temp, musics } = request.body
       const { user_id } = request
 
       const user = await usersrepository.findOne({ id: user_id })
@@ -36,7 +27,7 @@ class CreatePlaylistController {
 
       const playlist = playlistrepository.create({
         user_id,
-        reference: `${ritmo}-${dateFormat}-${Date.now()}`
+        reference: `${ritmo}-${temp}-${dateFormat}-${Date.now()}`
       })
       const { id: playlist_id } = await playlistrepository.save(playlist)
 
@@ -52,7 +43,7 @@ class CreatePlaylistController {
         await musicsrepository.save(sound)
       }
 
-      return response.json()
+      return response.json(playlist)
     } catch (error) {
       return response.json(error)
     }

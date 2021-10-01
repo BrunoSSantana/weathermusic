@@ -27,7 +27,7 @@ routes
 
 routes
   .post(
-    '/playlist/save',
+    '/playlists/save',
     ensureAuthenticatedUser,
     createPlaylistController.handle
   )
