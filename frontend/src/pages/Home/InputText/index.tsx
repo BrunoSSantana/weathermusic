@@ -1,10 +1,10 @@
-import { Container, Input, Button } from './styles'
+import { InputText, Input, Button } from './styles'
 
 export default function Title() {
   return (
-    <Container>
+    <InputText>
       <Input />
       <Button>Pesquisar</Button>
-    </Container>
+    </InputText>
   )
 }
