@@ -6,7 +6,8 @@ import LoginButton from "./LoginButton";
 import { ReactComponent as Favorite } from '../../assets/svg/favorite.svg'
 
 
-import { Button, Cards, Input, InputText, Container, Header, Title, Question, Text,ButtonSVG } from "./styles";
+import { Button, Cards, Input, InputText, Container, Header, Title, Question, Text, ButtonSVG } from "./styles";
+import { api } from "../../services/api";
 
 interface IRandomplaylistRequest {
 
@@ -30,6 +31,7 @@ export default function Home() {
   const [city, setCity] = useState("");
   const [clima, setClima] = useState<Number>();
   const [nameCity, setNameCity] = useState("");
+  const [ritmo, setRitmo] = useState("");
   const [randomPlaylist, setRandomPlaylist] = useState<IRandomplaylistRequest[]>([]);
 
   const weatherApi = "e5939e7732a537cc4d47b4c98ee3b0e7";
@@ -49,15 +51,19 @@ export default function Home() {
           setClima(celsius);
 
           if (celsius > 32) {
+            setRitmo("rock")
             reqMusic("rock");
           }
           if (celsius <= 32 && celsius >= 24) {
+            setRitmo("pop")
             reqMusic("pop");
           }
           if (celsius <= 23 && celsius >= 16) {
+            setRitmo("Clássica")
             reqMusic("Clássica");
           }
           if (celsius < 16) {
+            setRitmo("lofi")
             reqMusic("lofi");
           }
         });
@@ -83,11 +89,30 @@ export default function Home() {
           },
         })
         .then((response) => {
-          console.log(response.data.tracks.hits);
           setRandomPlaylist(response.data.tracks.hits);
         });
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  async function savePlaylist() {
+    try {
+      const musics = randomPlaylist.map((result) => {
+        return {
+          music_name: result.track.title,
+          url_sound: result.track.url,
+          url_image: result.track.share.image,
+          artist: result.track.subtitle
+        }
+      })
+
+      await api.post('playlists/save', {
+        ritmo, temp: clima, musics,
+      })
+
+    } catch (error) {
+
     }
   }
 
@@ -107,7 +132,7 @@ export default function Home() {
           <><h1>Temperatura em {nameCity}: {clima}°C</h1>
             <Question>
               <Text>Oque achou dessa playlist de MPB que selecionamos?</Text>
-              <ButtonSVG>
+              <ButtonSVG onClick={savePlaylist}>
                 <Favorite /> Salvar
               </ButtonSVG>
             </Question></>

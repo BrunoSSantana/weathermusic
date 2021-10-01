@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Container } from './styles'
 
 interface ICardsProps {
@@ -11,7 +12,9 @@ export default function Card({ music_name, subtible, url_image, url_sound }: ICa
   return (
     <>
       <Container>
-        <img src={url_image} alt="Capa da música" />
+        <Link to={url_sound}>
+          <img src={url_image} alt="Capa da música" />
+        </Link>
         <div>
           <p>{music_name}</p>
           <span>{subtible}</span>
