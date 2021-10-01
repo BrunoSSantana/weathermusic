@@ -26,4 +26,8 @@ export const Container = styled.div`
     font-weight: normal;
   }
 
+  @media (max-width: 1200px) {
+    max-width: 600px;
+  }
+
 `

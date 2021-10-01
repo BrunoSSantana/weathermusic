@@ -127,9 +127,9 @@ export default function Home() {
             }} />
           <Button onClick={reqClima}>Pesquisar</Button>
         </InputText>
-        {city
+        {ritmo
           ?
-          <><h1>Temperatura em {nameCity}: {clima}°C</h1>
+          <><p>Temperatura em {nameCity}: {clima}°C</p>
             <Question>
               <Text>Oque achou dessa playlist de MPB que selecionamos?</Text>
               <ButtonSVG onClick={savePlaylist}>
