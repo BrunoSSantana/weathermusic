@@ -17,5 +17,27 @@ export default createGlobalStyle`
      display: flex;
      flex-direction: column;
      /* padding: 40px 100px; */
+
+     
    }
+
+   button{
+     cursor: pointer;
+   }
+
+   a{
+     text-decoration: none;
+   }
+
+   :root {
+
+    --button-login-Register: #30B535;
+    --button-login-Register-hover: #26AA2B;
+    --login-Register-shadow: #004407; 
+    --border-bottom-login: #9e9e9e;
+    --login-text-info: #E1E1E1;
+    --button-text-login: #E1E1E1;
+    --login-focus-shadow: #35EA47;
+
+    }
 `

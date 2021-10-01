@@ -22,7 +22,7 @@ const routes = Router()
 
 routes
   .post('/new', createUserController.handle)
-  .get('/auth', authUserController.handle)
+  .post('/auth', authUserController.handle)
   .put('/update', ensureAuthenticatedUser, updateUserController.handle)
 
 routes
