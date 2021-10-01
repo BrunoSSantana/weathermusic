@@ -20,7 +20,7 @@ export const Button = styled.button`
   font-weight: bold;
   color: #FFF;
 
-  border-radius: 5px;
+  border-radius: 6px;
 
   &:hover {
     cursor: pointer;
@@ -35,6 +35,7 @@ export const Button = styled.button`
 
 `
 export const Container = styled.div`
+  padding: 20px 0;
   display: flex;
   flex-direction: row;
   align-items: center;

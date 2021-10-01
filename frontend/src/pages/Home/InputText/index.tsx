@@ -1,5 +1,4 @@
-import { Container, Input } from './style'
-import { Button } from './style'
+import { Container, Input, Button } from './styles'
 
 export default function Title() {
   return (

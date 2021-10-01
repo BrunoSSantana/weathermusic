@@ -16,6 +16,6 @@ export default createGlobalStyle`
 
      display: flex;
      flex-direction: column;
-     padding: 40px 140px;
+     /* padding: 40px 100px; */
    }
 `
