@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 import Card from "./Card";
@@ -8,6 +8,11 @@ import { ReactComponent as Favorite } from '../../assets/svg/favorite.svg'
 
 import { Button, Cards, Input, InputText, Container, Header, Title, Question, Text, ButtonSVG } from "./styles";
 import { api } from "../../services/api";
+
+// interface IRequestesLocation {
+//   latitude: any
+//   longitude: any
+// }
 
 interface IRandomplaylistRequest {
 
@@ -25,11 +30,12 @@ interface IRandomplaylistRequest {
 
 export default function Home() {
 
-  useEffect(() => {
-  }, []);
+
 
   const [city, setCity] = useState("");
   const [clima, setClima] = useState<Number>();
+  // const [latitude, setLongitude] = useState<Number>();
+  // const [longitude, setLatitude] = useState<Number>();
   const [nameCity, setNameCity] = useState("");
   const [ritmo, setRitmo] = useState("");
   const [randomPlaylist, setRandomPlaylist] = useState<IRandomplaylistRequest[]>([]);
@@ -38,10 +44,15 @@ export default function Home() {
 
   async function reqClima() {
     setNameCity(city)
+    let baseUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApi}`
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    // latitude ? baseUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weatherApi}` : ''
+    console.log(baseUrl);
+
     try {
       await axios
         .get(
-          `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApi}`
+          baseUrl
         )
         .then((response) => {
           console.log(response.data.main.temp);
@@ -49,7 +60,7 @@ export default function Home() {
           const celsius = parseInt(kevin) - 273;
 
           setClima(celsius);
-          
+
 
           if (celsius > 32) {
             setRitmo("rock")
@@ -118,6 +129,22 @@ export default function Home() {
 
     }
   }
+
+
+  // async function handleLocation({ coords }: any) {
+  //   const { latitude, longitude } = coords
+
+  //   setLatitude(latitude);
+  //   setLongitude(longitude);
+
+
+  // }
+  // function getLocation() {
+  //   navigator.geolocation.getCurrentPosition(handleLocation)
+  // }
+  // getLocation()
+
+
 
   return (
     <Container>
