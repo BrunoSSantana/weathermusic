@@ -10,7 +10,7 @@ export default function Playlist({ id, reference }: IPlaylistProps) {
   return (
     <Container>
 
-      <div>
+      <div key={id}>
         <h3>{reference}</h3>
         <p>{id}</p>
       </div>
