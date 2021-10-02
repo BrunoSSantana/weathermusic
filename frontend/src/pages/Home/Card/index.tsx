@@ -7,20 +7,20 @@ interface ICardsProps {
   subtible: string
 }
 
-export default function Card({ music_name, subtible, url_image, url_sound }: ICardsProps) {
+export default function Card(props: ICardsProps) {
   return (
-    <>
-    <a href={url_sound} target="_blank" rel="noopener noreferrer">
-      <Container>
-        
-          <img src={url_image} alt="Capa da música" />
-       
+
+    <a href={props.url_sound} target="_blank" rel="noopener noreferrer" >
+      <Container >
+
+        <img src={props.url_image} alt="Capa da música"/>
+
         <div>
-          <p>{music_name}</p>
-          <span>{subtible}</span>
+          <p>{props.music_name}</p>
+          <span>{props.subtible}</span>
         </div>
       </Container>
-      </a>
-    </>
+    </a>
+
   )
 }
