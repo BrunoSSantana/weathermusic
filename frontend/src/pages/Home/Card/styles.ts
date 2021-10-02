@@ -14,6 +14,11 @@ export const Container = styled.div`
 
   cursor: pointer;
 
+  :hover{
+    background: #F2F2F2;
+    border: solid 1px #333;
+  }
+
   img {
     border-radius: 50%;
 

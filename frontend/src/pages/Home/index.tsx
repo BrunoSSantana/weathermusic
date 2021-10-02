@@ -49,6 +49,7 @@ export default function Home() {
           const celsius = parseInt(kevin) - 273;
 
           setClima(celsius);
+          
 
           if (celsius > 32) {
             setRitmo("rock")
@@ -73,13 +74,15 @@ export default function Home() {
   }
 
   async function reqMusic(genre: string) {
+
+    var randomNumber = Math.floor(Math.random() * 100 + 1)
     try {
       await axios
         .get("https://shazam.p.rapidapi.com/search", {
           params: {
             term: genre,
             locale: "en-US",
-            offset: "1",
+            offset: randomNumber,
             limit: "5",
           },
           headers: {

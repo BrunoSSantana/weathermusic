@@ -14,7 +14,6 @@ export default function Login() {
     const [colorTextEmail, setColorTextEmail] = useState('')
     const [textEmail, setTextEmail] = useState('')
 
-
     
 
     useEffect(()=>{
@@ -46,6 +45,7 @@ export default function Login() {
     }
 
     async function LoginUser(){
+        console.log('asdasd')
         try {
             await axios.post("http://localhost:3003/users/auth", {
               email,
@@ -53,7 +53,8 @@ export default function Login() {
             }).then((response) => {
                 localStorage.setItem('token', response.data)
                 console.log(response);
-                history.push("/");
+                document.location.reload(true)
+                history.push('/');
             });
           } catch (error) {
                 console.log(error);

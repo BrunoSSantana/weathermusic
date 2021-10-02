@@ -97,6 +97,10 @@ export const Button = styled.button`
 
   font-weight: bold;
 
+  :hover{
+    background: #04D322;
+  }
+
   @media (max-width: 560px) {
     font-size: 14px;
     height: 50px;
@@ -127,6 +131,7 @@ export const ButtonSVG = styled.button`
   border-radius: 6px;
 
   &:hover {
+    background: #04D322;
     cursor: pointer;
   }
 
