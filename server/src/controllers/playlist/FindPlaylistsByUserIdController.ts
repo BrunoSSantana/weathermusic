@@ -3,18 +3,21 @@ import { getCustomRepository } from 'typeorm'
 
 // import { MusicsRepositories } from '../repositories/MusicsRepositories'
 import { PlaylistsRepositories } from '../../repositories/PlaylistsRepositories'
+import { UsersRepositories } from '../../repositories/UsersRepositories'
 
 class FindPlaylistByUserIdController {
   async handle(request: Request, response: Response): Promise<Response> {
     try {
       const playlistsrepository = getCustomRepository(PlaylistsRepositories)
-      // const musicsrepository = getCustomRepository(MusicsRepositories)
+      const usersrepository = getCustomRepository(UsersRepositories)
       const { user_id } = request
 
       const playlists_id = await playlistsrepository.find({
         select: ['id', 'reference'],
         where: { user_id }
       })
+
+      const user = await usersrepository.findOne(user_id)
 
       // const musics = await Promise.all(
       //   playlists_id.map(async playlist => {
@@ -26,7 +29,14 @@ class FindPlaylistByUserIdController {
       //   })
       // )
 
-      return response.json({ playlists_id })
+      return response.json({
+        playlists_id,
+        user: {
+          name: user.name,
+          id: user.id,
+          email: user.email
+        }
+      })
     } catch (error) {
       return response.json(error)
     }
