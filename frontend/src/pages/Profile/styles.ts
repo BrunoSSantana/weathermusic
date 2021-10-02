@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 100px 180px;  
+  padding: 80px 100px;  
 `;
 
 
@@ -31,10 +31,11 @@ export const Playlists = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
 `;
 
 export const Playlist = styled.div`
-  
+
 `;
 
 export const Infos = styled.div`
@@ -49,5 +50,31 @@ export const Infos = styled.div`
     font-weight: normal;
   }
 
-  /* background: #000; */
 `;
+
+export const PlaylistButton = styled.button`
+  border: none;
+  width: 90%;
+
+`;
+
+
+export const Content = styled.div`
+  display: flex;
+`;
+
+export const Musics = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 80px 0;
+  display: flex;
+  width: 40%;
+`;
+
+export const Music = styled.div`
+  display: flex;
+  color: #FFF;
+`;
+
+
