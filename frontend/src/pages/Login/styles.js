@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import img from '../../assets/background-login.jpg'
 
 export const Container = styled.div`
-    background: url(${img});
+    background-color: #08AEEA;
+    background-image: linear-gradient(-45deg, #08AEEA 0%, #2AF598 100%);
+
     background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -22,7 +24,7 @@ export const Painel = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 0 50px  var(--login-Register-shadow);
+    box-shadow: -2px 1px 20px rgba(0, 0, 0, .2);
 
 `
 
@@ -66,8 +68,17 @@ export const Input = styled.input`
 `
 
 export const SingUp = styled.a`
+    font-size: 14px;
+    font-weight: normal;
     text-align: center;
     margin-top: 20px;
+    color: #FFF;
+
+    background: #FF5349;
+    padding: 7px;
+    border-radius: 10px;
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, .3);
+
 `
 
 export const RegisterButton = styled.button`
@@ -76,10 +87,11 @@ export const RegisterButton = styled.button`
     background: var(--button-login-Register);
     border-radius: 10px;
     border: none;
-    color: var(--button-text-login);
-    font-weight: bold;
+    color: #FFF;
+    font-weight: normal;
+    font-size: 14px;
     
-    box-shadow: 0 7px 15px  var(--login-Register-shadow);
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, .3);
 
     :hover{
         background: var(--button-login-Register-hover);
