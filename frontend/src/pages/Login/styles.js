@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import img from '../../assets/background-login.jpg'
 
 export const Container = styled.div`
     background-color: #08AEEA;
@@ -69,32 +68,36 @@ export const Input = styled.input`
 
 export const SingUp = styled.a`
     font-size: 14px;
-    font-weight: normal;
+    font-weight: bold;
     text-align: center;
     margin-top: 20px;
     color: #FFF;
 
-    background: #FF5349;
+    background: #08AEEA;
     padding: 7px;
     border-radius: 10px;
     box-shadow: -1px 1px 5px rgba(0, 0, 0, .3);
+
+    :hover{
+        filter: brightness(85%);
+    }
 
 `
 
 export const RegisterButton = styled.button`
     width: 100%;
     height: 5vh;
-    background: var(--button-login-Register);
+    background: #2AF598;
     border-radius: 10px;
     border: none;
     color: #FFF;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 14px;
     
     box-shadow: -1px 1px 5px rgba(0, 0, 0, .3);
 
     :hover{
-        background: var(--button-login-Register-hover);
+        filter: brightness(85%);
     }
 
 `
@@ -111,9 +114,11 @@ export const CheckboxButton = styled.button`
  font-size: 14px;
  background: none;
  border: none;
+ display: flex;
+ align-items: baseline;
 `
 export const CheckboxInput = styled.input`
-    margin-top: 5px;
+    margin: 5px 5px 0 0;
     cursor: pointer;
     width: 13px;
     height: 13px;
