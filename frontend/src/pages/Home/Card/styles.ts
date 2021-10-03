@@ -1,4 +1,17 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(-10px)
+
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px)
+
+  }
+`
 
 export const Container = styled.div`
   display: flex;
@@ -13,7 +26,6 @@ export const Container = styled.div`
   padding: 14px 14px;
 
   cursor: pointer;
-
   :hover{
     background: #F2F2F2;
     border: solid 1px #333;
@@ -35,4 +47,6 @@ export const Container = styled.div`
     max-width: 600px;
   }
 
-`
+  animation: .5s ${fadeIn} ease-out;
+  `
+
