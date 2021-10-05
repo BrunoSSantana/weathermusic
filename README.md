@@ -32,7 +32,7 @@
 
 
 
-<img alt="Layout" src="https://res.cloudinary.com/eliasgcf/image/upload/v1586302738/assets/previewApp_fnt7hm.png">
+<img alt="Layout" src="https://i.ibb.co/9pzf4x4/screenshots.png">
 
 ## 👨🏻‍💻 About the project
 
