@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import img from '../../assets/background-login.jpg'
 
 export const Container = styled.div`
-    background: url(${img});
+    background-color: #08AEEA;
+    background-image: linear-gradient(-45deg, #08AEEA 0%, #2AF598 100%);
+
     background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -22,7 +23,7 @@ export const Painel = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 0 50px  var(--login-Register-shadow);
+    box-shadow: -2px 1px 20px rgba(0, 0, 0, .2);
 
 `
 
@@ -66,23 +67,37 @@ export const Input = styled.input`
 `
 
 export const SingUp = styled.a`
+    font-size: 14px;
+    font-weight: bold;
     text-align: center;
     margin-top: 20px;
+    color: #FFF;
+
+    background: #08AEEA;
+    padding: 7px;
+    border-radius: 10px;
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, .3);
+
+    :hover{
+        filter: brightness(85%);
+    }
+
 `
 
 export const RegisterButton = styled.button`
     width: 100%;
     height: 5vh;
-    background: var(--button-login-Register);
+    background: #2AF598;
     border-radius: 10px;
     border: none;
-    color: var(--button-text-login);
+    color: #FFF;
     font-weight: bold;
+    font-size: 14px;
     
-    box-shadow: 0 7px 15px  var(--login-Register-shadow);
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, .3);
 
     :hover{
-        background: var(--button-login-Register-hover);
+        filter: brightness(85%);
     }
 
 `
@@ -99,9 +114,11 @@ export const CheckboxButton = styled.button`
  font-size: 14px;
  background: none;
  border: none;
+ display: flex;
+ align-items: baseline;
 `
 export const CheckboxInput = styled.input`
-    margin-top: 5px;
+    margin: 5px 5px 0 0;
     cursor: pointer;
     width: 13px;
     height: 13px;

@@ -6,9 +6,10 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: var(--button-login-Register);
-`;
+    background-color: #04D361;
+    `;
 
 export const A = styled.a`
-margin: 50px;
+    color: #FFF;
+    margin: 50px;
 `;
