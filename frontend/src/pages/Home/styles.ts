@@ -83,10 +83,8 @@ export const Input = styled.input`
     outline: none;
   }
 
-
-
 `
-
+ 
 export const Button = styled.button`
   background: #04D361;
   color: #FFF;
@@ -98,7 +96,7 @@ export const Button = styled.button`
   font-weight: bold;
 
   :hover{
-    background: #04D322;
+    background: #04D382;
   }
 
   @media (max-width: 560px) {
