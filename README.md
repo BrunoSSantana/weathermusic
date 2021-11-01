@@ -36,14 +36,21 @@
 
 ## 👨🏻‍💻 About the project
 
-*This application was developed during the first week of community challenges [Holocron](https://www.instagram.com/somosholocron/).
+This application was developed during the first week of community challenges [Holocron](https://www.instagram.com/somosholocron/).
 This challenge created by  Gabriel Sartorato with the following description:
+
 O aplicativo tem como objetivo buscar playlists de acordo com o clima da cidade ou a localização informada pelo usuário. O site mostrará uma playlist diferente para cada intervalo de temperatura.
+
 Caso a temperatura seja maior que 32 graus, deverá retornar Rock, de 32 a 24 deverá retornar Pop, de 24 a 16 deverá retornar Clássica e menor que 16 deverá retornar Lofi.
+
 O usuário poderá salvar a playlist informada, caso ele goste das músicas sugeridas.
+
 Apis sugeridas: 
-[https://openweathermap.org/current](https://openweathermap.org/current)
-[https://rapidapi.com/apidojo/api/shazam](https://rapidapi.com/apidojo/api/shazam)*
+
+- [https://openweathermap.org/current](https://openweathermap.org/current)
+- [https://rapidapi.com/apidojo/api/shazam](https://rapidapi.com/apidojo/api/shazam)
+
+---
 
 **Application Requirements**
 
